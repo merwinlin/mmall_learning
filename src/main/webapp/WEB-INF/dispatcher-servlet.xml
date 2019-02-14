@@ -21,7 +21,7 @@
                     </list>
                 </property>
             </bean>
-            <!-- 自动反序列化配置 -->
+            <!-- 自动序列化配置，对应@ResponseBody -->
             <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
                 <property name="supportedMediaTypes">
                     <list>
