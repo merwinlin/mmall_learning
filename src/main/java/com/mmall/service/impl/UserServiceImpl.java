@@ -5,7 +5,7 @@ import com.mmall.common.ServerResponse;
 import com.mmall.common.TokenCache;
 import com.mmall.dao.UserMapper;
 import com.mmall.pojo.User;
-import com.mmall.service.IuserService;
+import com.mmall.service.IUserService;
 import com.mmall.util.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.UUID;
  * Created by mlin4 on 2019/2/13.
  */
 @Service("iUserService")
-public class UserServiceImpl implements IuserService{
+public class UserServiceImpl implements IUserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -181,6 +181,20 @@ public class UserServiceImpl implements IuserService{
         }
         user.setPassword(StringUtils.EMPTY);
         return ServerResponse.createBySuccess(user);
+    }
+
+    //backend
+
+    /**
+     * 校验是否为管理员
+     * @param user
+     * @return
+     */
+    public ServerResponse checkAdminRole(User user){
+        if(user != null && user.getRole().equals(Const.Role.ROLE_ADMIN)){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
     }
 }
 

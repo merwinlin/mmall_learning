@@ -9,7 +9,7 @@ import com.mmall.pojo.User;
 /*
     接口代理
  */
-public interface IuserService {
+public interface IUserService {
     ServerResponse<User> login(String username, String password);
 
     ServerResponse<String> register(User user);
@@ -27,4 +27,6 @@ public interface IuserService {
     ServerResponse<User> updateInformation(User user);
 
     ServerResponse<User> getInformation(Integer userId);
+
+    ServerResponse checkAdminRole(User user);
 }

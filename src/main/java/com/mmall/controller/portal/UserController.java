@@ -4,8 +4,7 @@ import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
 import com.mmall.pojo.User;
-import com.mmall.service.IuserService;
-import org.omg.CORBA.Object;
+import com.mmall.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     @Autowired
-    private IuserService iUserService;
+    private IUserService iUserService;
 
     /**
      * user login

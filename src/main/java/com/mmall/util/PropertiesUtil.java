@@ -7,17 +7,18 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
+import java.util.zip.InflaterInputStream;
 
 /**
- * Created by geely
+ * Created by mlin4 on 2019/2/16.
  */
 public class PropertiesUtil {
-
     private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
     private static Properties props;
 
-    static {
+    //用static块使得tomcat 启动时就加载到properties
+    static{
         String fileName = "mmall.properties";
         props = new Properties();
         try {
@@ -36,14 +37,10 @@ public class PropertiesUtil {
     }
 
     public static String getProperty(String key,String defaultValue){
-
         String value = props.getProperty(key.trim());
         if(StringUtils.isBlank(value)){
             value = defaultValue;
         }
         return value.trim();
     }
-
-
-
 }
